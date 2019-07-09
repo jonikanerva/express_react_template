@@ -20,6 +20,9 @@
     "webpack:client": "webpack --mode production --config-name='client'",
     "webpack:server": "webpack --mode production --config-name='server'"
   },
+  "engines": {
+    "node": "10.16.0"
+  },
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
