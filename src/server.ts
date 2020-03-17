@@ -1,5 +1,5 @@
-import { startService, app } from './server/app';
+import { startService, app } from './server/app'
 
 startService(app).catch(() => {
-    process.exit(1);
-});
+  process.exit(1)
+})

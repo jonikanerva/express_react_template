@@ -1,5 +1,5 @@
 describe('example test case', () => {
-    it('should run tests', () => {
-        expect(true).toEqual(true);
-    });
-});
+  it('should run tests', () => {
+    expect(true).toEqual(true)
+  })
+})
