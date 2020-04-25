@@ -5,7 +5,7 @@ import manifestJson from '../../../manifest.json'
 
 const manifest: { [key: string]: string } = manifestJson
 
-const html = () => `<!DOCTYPE html>
+const html = (): string => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Hello World</title>
