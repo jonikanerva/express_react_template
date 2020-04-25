@@ -1,6 +1,6 @@
 # React SSR template
 
-Template for a [React][react] server side rendered app written in [TypeScript][typescript]. It uses [Express][express] as the server and [Webpack][webpack] for building both the server and the client bundles. [Jest][jest] is used for testing, [Prettier][prettier] for code formatting, and [tslint][tslint] for static analysis.
+Template for a [React][react] server side rendered app written in [TypeScript][typescript]. It uses [Express][express] as the server and [Webpack][webpack] for building both the server and the client bundles. [Jest][jest] is used for testing, [Prettier][prettier] for code formatting, and [eslint][eslint] for static analysis.
 
 Webpack uses [awesome-typescript-loader][awesome-typescript-loader] to compile the TypeScript code. CSS is compiled to a separate file for the browser using [mini-css-extract-plugin][mini-css-extract-plugin] and polyfilled using various [postcss][postcss] plugins. Bundles are hashed using [webpack-manifest-plugin][webpack-manifest-plugin] for easy caching. [CSS modules][css-modules] are enabled using [css-loader][css-loader] for hashing CSS class names to avoid collisions.
 
@@ -14,7 +14,7 @@ Webpack uses [awesome-typescript-loader][awesome-typescript-loader] to compile t
 [postcss]: https://postcss.org
 [prettier]: https://prettier.io
 [react]: https://reactjs.org
-[tslint]: https://palantir.github.io/tslint/
+[eslint]: https://eslint.org
 [typescript]: https://www.typescriptlang.org
 [webpack-manifest-plugin]: https://github.com/danethurber/webpack-manifest-plugin/
 [webpack]: https://webpack.js.org
