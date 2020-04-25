@@ -2,6 +2,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const nodeExternals = require('webpack-node-externals')
+const path = require('path')
 const cssModulesNameFormat = '[name]__[local]___[hash:base64:5]'
 
 const clientConfig = {
@@ -9,7 +10,7 @@ const clientConfig = {
   entry: './src/browser.tsx',
   output: {
     filename: 'bundle.[chunkhash].js',
-    path: __dirname + '/build/public',
+    path: path.resolve(__dirname, 'build/public'),
   },
   devtool: 'source-map',
   cache: true,
@@ -32,7 +33,7 @@ const clientConfig = {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: __dirname + '/postcss.config.js',
+                path: path.resolve(__dirname, 'postcss.config.js'),
               },
             },
           },
@@ -63,7 +64,7 @@ const clientConfig = {
   plugins: [
     new HardSourceWebpackPlugin(),
     new ManifestPlugin({
-      fileName: __dirname + '/manifest.json',
+      fileName: path.resolve(__dirname, 'manifest.json'),
     }),
     new MiniCssExtractPlugin({
       filename: 'style.[chunkhash].css',
@@ -78,7 +79,7 @@ const serverConfig = {
   entry: './src/server.ts',
   output: {
     filename: 'server.js',
-    path: __dirname + '/build',
+    path: path.resolve(__dirname, 'build'),
   },
   optimization: {
     nodeEnv: false,
