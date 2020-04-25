@@ -11,7 +11,7 @@
     "nodemon": "nodemon --watch build build/server.js",
     "prettier-json": "prettier --config package.json --write '**/*.json'",
     "prettier-ts": "prettier --parser typescript --config package.json --write '**/*.ts*'",
-    "prettier": "run-s prettier-ts prettier-json",
+    "format": "run-s prettier-ts prettier-json",
     "start": "node build/server.js",
     "s": "run-p touch watch:build nodemon",
     "test": "jest",
