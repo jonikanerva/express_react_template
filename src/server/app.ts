@@ -17,7 +17,7 @@ export { app }
 export const startService = async (
   expressApp: Application
 ): Promise<Server> => {
-  console.log('Server running on port', port) // tslint:disable-line no-console
+  console.log('Server running on port', port)
 
   return expressApp.listen(port)
 }
