@@ -6,8 +6,8 @@
     "build": "run-s webpack:client webpack:server",
     "lint:json": "prettier --check '**/*.json'",
     "lint:ts": "prettier --check --parser typescript --config package.json '**/*.ts*'",
-    "lint:tslint": "tslint --project .",
-    "lint": "run-s lint:tslint lint:ts lint:json",
+    "lint:eslint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "run-s lint:eslint lint:ts lint:json",
     "nodemon": "nodemon --watch build build/server.js",
     "prettier-json": "prettier --config package.json --write '**/*.json'",
     "prettier-ts": "prettier --parser typescript --config package.json --write '**/*.ts*'",
@@ -21,7 +21,7 @@
     "webpack:server": "webpack --mode production --config-name='server'"
   },
   "engines": {
-    "node": "12.16.1"
+    "node": "12.16.2"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -37,9 +37,13 @@
     "@types/ramda": "^0.26.44",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
     "file-loader": "^6.0.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "jest": "^25.1.0",
@@ -52,8 +56,6 @@
     "prettier": "^1.19.1",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^25.2.1",
-    "tslint": "^6.1.0",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
