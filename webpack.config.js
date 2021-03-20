@@ -1,5 +1,4 @@
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const nodeExternals = require('webpack-node-externals')
 const path = require('path')
@@ -9,7 +8,7 @@ const clientConfig = {
   name: 'client',
   entry: './src/browser.tsx',
   output: {
-    filename: 'bundle.[chunkhash].js',
+    filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'build/public'),
   },
   devtool: 'source-map',
@@ -32,8 +31,12 @@ const clientConfig = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: path.resolve(__dirname, 'postcss.config.js'),
+              postcssOptions: {
+                plugins: {
+                  'postcss-import': {},
+                  'postcss-preset-env': {},
+                  cssnano: {},
+                },
               },
             },
           },
@@ -56,18 +59,17 @@ const clientConfig = {
         test: /\.ttf$/,
         loader: 'file-loader',
         options: {
-          name: '[name]_[hash].[ext]',
+          name: '[name]_[contenthash].[ext]',
         },
       },
     ],
   },
   plugins: [
-    new HardSourceWebpackPlugin(),
-    new ManifestPlugin({
+    new WebpackManifestPlugin({
       fileName: path.resolve(__dirname, 'manifest.json'),
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.[chunkhash].css',
+      filename: 'style.[contenthash].css',
     }),
   ],
 }
@@ -93,8 +95,8 @@ const serverConfig = {
         test: /\.css$/,
         loader: 'css-loader',
         options: {
-          onlyLocals: true,
           modules: {
+            exportOnlyLocals: true,
             localIdentName: cssModulesNameFormat,
           },
         },
@@ -114,7 +116,7 @@ const serverConfig = {
       },
     ],
   },
-  plugins: [new HardSourceWebpackPlugin()],
+  plugins: [],
 }
 
 module.exports = [clientConfig, serverConfig]
