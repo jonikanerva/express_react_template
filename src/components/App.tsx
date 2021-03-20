@@ -1,6 +1,6 @@
 import React from 'react'
-import { header } from './App.css'
+import css from './App.css'
 
-const App: React.FC = () => <div className={header}>Hello World!</div>
+const App: React.FC = () => <div className={css.header}>Hello World!</div>
 
 export default App
