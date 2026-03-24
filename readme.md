@@ -23,16 +23,16 @@ Webpack uses [ts-loader][ts-loader] to compile the TypeScript code. CSS is compi
 
 Set the correct Node version with `nvm install && nvm use`.
 
-Install dependencies with `yarn install`.
+Install dependencies with `npm install`.
 
-Run tests with `yarn test`.
+Run tests with `npm test`.
 
-Run static analysis and linters with `yarn lint`.
+Run static analysis and linters with `npm run lint`.
 
-Format files with `yarn format`.
+Format files with `npm run format`.
 
 ## Server
 
-Start application with `yarn build && yarn start`.
+Start application with `npm run build && npm start`.
 
-Start application in watch/dev mode with `yarn s`.
+Start application in watch/dev mode with `npm run s`.
