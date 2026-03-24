@@ -15,7 +15,7 @@ app.get('/', getRoot)
 export { app }
 
 export const startService = async (
-  expressApp: Application
+  expressApp: Application,
 ): Promise<Server> => {
   console.log('Server running on port', port)
 

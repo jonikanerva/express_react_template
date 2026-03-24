@@ -10,6 +10,7 @@ const clientConfig = {
   output: {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'build/public'),
+    publicPath: '/',
   },
   devtool: 'source-map',
   cache: true,
@@ -25,6 +26,7 @@ const clientConfig = {
             options: {
               modules: {
                 localIdentName: cssModulesNameFormat,
+                namedExport: false,
               },
             },
           },
@@ -57,9 +59,9 @@ const clientConfig = {
       },
       {
         test: /\.ttf$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name]_[contenthash].[ext]',
+        type: 'asset/resource',
+        generator: {
+          filename: '[name]_[contenthash][ext]',
         },
       },
     ],
@@ -98,6 +100,7 @@ const serverConfig = {
           modules: {
             exportOnlyLocals: true,
             localIdentName: cssModulesNameFormat,
+            namedExport: false,
           },
         },
       },
