@@ -25,7 +25,7 @@ Set the correct Node version with `nvm install && nvm use`.
 
 Install dependencies with `npm install`.
 
-Run tests with `npm test`.
+Run tests with `npm run test`.
 
 Run static analysis and linters with `npm run lint`.
 
@@ -33,6 +33,6 @@ Format files with `npm run format`.
 
 ## Server
 
-Start application with `npm run build && npm start`.
+Start application with `npm run build && npm run start`.
 
 Start application in watch/dev mode with `npm run s`.
