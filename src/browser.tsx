@@ -1,6 +1,5 @@
-import React from 'react'
-import { hydrate } from 'react-dom'
+import { hydrateRoot } from 'react-dom/client'
 
 import App from './components/App'
 
-hydrate(<App />, document.querySelector('#root'))
+hydrateRoot(document.querySelector('#root')!, <App />)
